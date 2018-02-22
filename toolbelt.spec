@@ -4,7 +4,7 @@
 #
 Name     : toolbelt
 Version  : 0.8.0
-Release  : 2
+Release  : 3
 URL      : https://github.com/requests/toolbelt/archive/0.8.0.tar.gz
 Source0  : https://github.com/requests/toolbelt/archive/0.8.0.tar.gz
 Summary  : No detailed summary available
@@ -44,7 +44,6 @@ legacypython components for the toolbelt package.
 %package python
 Summary: python components for the toolbelt package.
 Group: Default
-Requires: toolbelt-legacypython
 Requires: toolbelt-python3
 
 %description python
@@ -68,12 +67,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1519315099
+export SOURCE_DATE_EPOCH=1519320379
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1519315099
+export SOURCE_DATE_EPOCH=1519320379
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
