@@ -4,13 +4,12 @@
 #
 Name     : toolbelt
 Version  : 0.8.0
-Release  : 4
+Release  : 5
 URL      : https://github.com/requests/toolbelt/archive/0.8.0.tar.gz
 Source0  : https://github.com/requests/toolbelt/archive/0.8.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
-Requires: toolbelt-legacypython
 Requires: toolbelt-python3
 Requires: toolbelt-python
 BuildRequires : pbr
@@ -31,15 +30,6 @@ This is just a collection of utilities for `python-requests`_, but don't
 really belong in ``requests`` proper. The minimum tested requests version is
 ``2.1.0``. In reality, the toolbelt should work with ``2.0.1`` as well, but
 some idiosyncracies prevent effective or sane testing on that version.
-
-%package legacypython
-Summary: legacypython components for the toolbelt package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the toolbelt package.
-
 
 %package python
 Summary: python components for the toolbelt package.
@@ -67,25 +57,18 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523041578
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1523309235
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1523041578
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
