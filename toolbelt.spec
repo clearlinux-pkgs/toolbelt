@@ -4,7 +4,7 @@
 #
 Name     : toolbelt
 Version  : 0.8.0
-Release  : 11
+Release  : 12
 URL      : https://github.com/requests/toolbelt/archive/0.8.0.tar.gz
 Source0  : https://github.com/requests/toolbelt/archive/0.8.0.tar.gz
 Summary  : No detailed summary available
